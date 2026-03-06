@@ -5,31 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>動画まとめ</title>
     <style>
-        body {
+        body, html {
             margin: 0;
-            background-color: #f0f2f5; /* 背景色をTikTokのライトモードに近づける */
+            padding: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* 画面全体の高さに設定 */
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* iOS/Androidの標準フォントに近づける */
+            background-color: #fff; /* 背景を白に */
         }
-        .container {
-            text-align: center;
-            cursor: pointer; /* クリック可能であることを示すカーソル */
+        .clickable-area {
+            cursor: pointer;
+            display: block; /* エリア全体をブロック要素に */
+            max-width: 100%; /* 幅が画面を超えないように */
+            max-height: 100%; /* 高さが画面を超えないように */
         }
-        .container img {
+        .clickable-area img {
             width: 100%;
-            max-width: 400px; /* 画像の最大幅を指定 */
-            border-radius: 12px; /* 画像の角を丸くする */
+            height: auto; /* アスペクト比を維持 */
+            display: block; /* 画像下の余白を消す */
         }
     </style>
 </head>
 <body>
 
-    <div class="container" onclick="window.location.href='https://lite.tiktok.com/t/ZS9d6btkpEF5S-YOBqR/'">
-        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663358107416/tajZPBhHyWdvoiiV.PNG" alt="動画を再生">
-    </div>
+    <a href="snssdk1180://event?label=uid_12345_guid_67890&type=invite_friend&params_url_sig=a1b2c3d4e5" class="clickable-area">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663358107416/tajZPBhHyWdvoiiV.PNG" alt="招待に参加する">
+    </a>
+
+    <script>
+        // フォールバック：TikTokがインストールされていない場合
+        setTimeout(function() {
+            // アプリが開かなかった（まだこのページにいる）場合の処理
+            if (document.hasFocus()) {
+                window.location.href = 'https://lite.tiktok.com/t/ZS9d6btkpEF5S-YOBqR/';
+            }
+        }, 1000); // 1秒後にチェック
+    </script>
 
 </body>
 </html>
