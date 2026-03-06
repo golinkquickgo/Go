@@ -5,44 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>動画まとめ</title>
     <style>
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff; /* 背景を白に */
+            background: #f2f2f2;
+            font-family: sans-serif;
         }
-        .clickable-area {
-            cursor: pointer;
-            display: block; /* エリア全体をブロック要素に */
-            max-width: 100%; /* 幅が画面を超えないように */
-            max-height: 100%; /* 高さが画面を超えないように */
+        .container {
+            text-align: center;
+            padding: 20px;
         }
-        .clickable-area img {
-            width: 100%;
-            height: auto; /* アスペクト比を維持 */
-            display: block; /* 画像下の余白を消す */
+        .video-box {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            height: 260px;
+            background: black;
+            margin: 20px auto;
+            border-radius: 12px;
+            /* ここに画像を表示 */
+            background-image: url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663358107416/tajZPBhHyWdvoiiV.PNG');
+            background-size: cover; /* 画像をエリア全体に表示 */
+            background-position: center; /* 画像を中央に配置 */
         }
     </style>
 </head>
 <body>
 
-    <a href="snssdk1180://event?label=uid_12345_guid_67890&type=invite_friend&params_url_sig=a1b2c3d4e5" class="clickable-area">
-        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663358107416/tajZPBhHyWdvoiiV.PNG" alt="招待に参加する">
-    </a>
+    <div class="container">
+        <h2>動画まとめ</h2>
+        <p>新しく見つけ次第追加します</p>
 
-    <script>
-        // フォールバック：TikTokがインストールされていない場合
-        setTimeout(function() {
-            // アプリが開かなかった（まだこのページにいる）場合の処理
-            if (document.hasFocus()) {
-                window.location.href = 'https://lite.tiktok.com/t/ZS9d6btkpEF5S-YOBqR/';
-            }
-        }, 1000); // 1秒後にチェック
-    </script>
+        <!-- このdiv全体がクリック可能な領域になります -->
+        <div class="video-box" onclick="window.location.href='https://lite.tiktok.com/t/ZS9d6btkpEF5S-YOBqR/'"> 
+            <!-- 内側の要素は空のままで、背景画像として再生ボタン付き画像が表示されます -->
+        </div>
+
+    </div>
 
 </body>
 </html>
